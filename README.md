@@ -20,7 +20,7 @@ python -m venv ~/path_to_virtual_env
 ```
 2. Activate virtualenv
 ```
-source ~/path_to_virtual_env/bin/activate
+source ~/path_to_virtual_env/bin/activate // on Windows execute /path_to_virtual_env/Scripts/activate.bat
 ```
 3. Install requirements
 ```
