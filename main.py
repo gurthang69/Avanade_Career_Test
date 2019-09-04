@@ -63,18 +63,16 @@ class AvanadeTests(unittest.TestCase):
         WebDriverWait(self.driver, 20).until(EC.presence_of_element_located((By.CSS_SELECTOR, ".listJobs li")))
 
     def assert_minimum_jobs_condition(self, minimum):
-		maincontent = self.driver.find_element_by_css_selector("#mainContent")
         jobs = list(self.driver.find_elements_by_css_selector(".listJobs li"))
         jobs_length = len(jobs)
         while jobs_length < minimum:
             if not self.driver.find_element_by_css_selector(".nextLink"):
                 break
-			maincontent.location_once_scrolled_into_view
+            maincontent = self.driver.find_element_by_css_selector("#mainContent").location_once_scrolled_into_view
             WebDriverWait(self.driver, 20).until(EC.element_to_be_clickable((By.CSS_SELECTOR, ".nextLink")))
             self.driver.find_element_by_css_selector(".nextLink").click()
             WebDriverWait(self.driver, 20).until(EC.presence_of_element_located((By.CSS_SELECTOR, ".listJobs li")))
             jobs_length += len(list(self.driver.find_elements_by_css_selector(".listJobs li")))
-
         self.assertGreater(jobs_length, minimum)
 
 
