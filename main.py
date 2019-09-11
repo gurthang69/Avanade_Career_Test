@@ -25,7 +25,7 @@ class AvanadeTests(unittest.TestCase):
 
     def test_find_1_job_or_more_in_Denmark(self):
         self.search_for_jobs('Denmark')
-        self.assert_minimum_jobs_condition(0)
+        self.assert_minimum_jobs_condition(1)
 
     def test_find_agile_in_qualifications(self):
         self.search_for_jobs(search_term='Agile')
